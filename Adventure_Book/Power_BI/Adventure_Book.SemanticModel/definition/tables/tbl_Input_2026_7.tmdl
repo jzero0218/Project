@@ -1,0 +1,52 @@
+table tbl_Input_2026_7
+	lineageTag: 61cf1d62-3e2c-42a9-9459-85ec5a0c1903
+
+	column T_no
+		dataType: string
+		lineageTag: 1519bc1e-f19a-44ca-90e0-22dd93dad129
+		summarizeBy: none
+		sourceColumn: T_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task
+		dataType: string
+		lineageTag: c88d9092-8e6e-43f5-94af-ddf0974615af
+		summarizeBy: none
+		sourceColumn: Task
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: string
+		lineageTag: 81c5fbd7-5c53-42a4-af5a-8cf6b1d428ce
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Completed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bfda10a7-e1ff-4a64-ab6b-5d178cec78ae
+		summarizeBy: none
+		sourceColumn: Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tbl_Input_2026_7 = m
+		mode: import
+		source =
+				let
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, true),
+				    tbl_Input_2026_7_Table = 來源{[Item="tbl_Input_2026_7",Kind="Table"]}[Data],
+				    已變更類型 = Table.TransformColumnTypes(tbl_Input_2026_7_Table,{{"T_no", type text}, {"Task", type text}, {"2026/7/23", type logical}, {"2026/7/24", type logical}, {"2026/7/25", type logical}, {"2026/7/26", type logical}, {"2026/7/27", type logical}, {"2026/7/28", type logical}, {"2026/7/29", type logical}, {"2026/7/30", type logical}, {"2026/7/31", type logical}}),
+				    取消其他資料行樞紐 = Table.UnpivotOtherColumns(已變更類型, {"T_no", "Task"}, "屬性", "值"),
+				    已重新命名資料行 = Table.RenameColumns(取消其他資料行樞紐,{{"屬性", "Date"}, {"值", "Completed"}})
+				in
+				    已重新命名資料行
+
+	annotation PBI_NavigationStepName = 導覽
+
+	annotation PBI_ResultType = Table
+

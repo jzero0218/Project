@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "b47fa82015102d3501b9",
+  "position": {
+    "x": 108.54625550660793,
+    "y": 441.23348017621146,
+    "z": 3001,
+    "height": 193.12775330396477,
+    "width": 417.26872246696036,
+    "tabOrder": 3001
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Log"
+                    }
+                  },
+                  "Property": "Completed_rate"
+                }
+              },
+              "queryRef": "Daily_Log.Completed_rate",
+              "nativeQueryRef": "Completed_rate"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Daily_Log"
+                  }
+                },
+                "Property": "Completed_rate"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d1343d4c9450986845db",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Completed_rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

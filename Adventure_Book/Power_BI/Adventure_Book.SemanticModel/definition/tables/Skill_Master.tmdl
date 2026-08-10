@@ -1,0 +1,82 @@
+table Skill_Master
+	lineageTag: 6c3789de-864d-4e7a-a07b-c206796618ea
+
+	column S_no
+		dataType: string
+		lineageTag: b7bdf531-fb56-4c97-8306-dcda85943bd2
+		summarizeBy: none
+		sourceColumn: S_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column Skill_n
+		dataType: string
+		lineageTag: 82095bea-9d10-40b4-a000-8aef586b014e
+		summarizeBy: none
+		sourceColumn: Skill_n
+
+		annotation SummarizationSetBy = Automatic
+
+	column RPG_Cat
+		dataType: string
+		lineageTag: a42ec1ee-0b34-43aa-8f08-d88c389d84e2
+		summarizeBy: none
+		sourceColumn: RPG_Cat
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cat
+		dataType: string
+		lineageTag: a403760b-36de-427a-9f4f-c6f87d7dcbd6
+		summarizeBy: none
+		sourceColumn: Cat
+
+		annotation SummarizationSetBy = Automatic
+
+	column Display_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 1868d385-e003-4950-a66d-ccc35d2076c7
+		summarizeBy: sum
+		sourceColumn: Display_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Training
+		dataType: int64
+		formatString: 0
+		lineageTag: 331dbacd-1d43-46fa-8a09-ee2db7bf4f03
+		summarizeBy: sum
+		sourceColumn: Training
+
+		annotation SummarizationSetBy = Automatic
+
+	column Start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 31ddb2e5-f611-4188-8b47-95e4f0d8d76f
+		summarizeBy: none
+		sourceColumn: Start
+
+		variation 變化
+			isDefault
+			relationship: a4f260d3-12c4-49e8-abed-7c581b07dfc4
+			defaultHierarchy: LocalDateTable_94e9186c-d94a-45d7-8354-89860f4af6d8.日期階層
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Skill_Master = m
+		mode: import
+		source =
+				let
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, true),
+				    Skill_Master_Sheet = 來源{[Item="Skill_Master",Kind="Sheet"]}[Data],
+				    已將標頭升階 = Table.PromoteHeaders(Skill_Master_Sheet, [PromoteAllScalars=true]),
+				    已變更類型 = Table.TransformColumnTypes(已將標頭升階,{{"S_no", type text}, {"Skill_n", type text}, {"RPG_Cat", type text}, {"Cat", type text}, {"Display_order", Int64.Type}, {"Training", Int64.Type}, {"Start", type date}})
+				in
+				    已變更類型
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,134 @@
+table Task_Master
+	lineageTag: 7cce963d-285c-4f46-9c19-46b2e23c68df
+
+	column T_no
+		dataType: string
+		lineageTag: 92880b0b-e8c2-4412-85f4-ba35abee0057
+		summarizeBy: none
+		sourceColumn: T_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task_n
+		dataType: string
+		lineageTag: 9fb5e993-9947-4ac4-bce6-5d433ff98647
+		summarizeBy: none
+		sourceColumn: Task_n
+
+		annotation SummarizationSetBy = Automatic
+
+	column RPG_Cat
+		dataType: string
+		lineageTag: b7fda0ee-b287-4f74-9072-48db42655352
+		summarizeBy: none
+		sourceColumn: RPG_Cat
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cat
+		dataType: string
+		lineageTag: 3604a8b6-9f55-44e7-b641-fe29f6ff54e1
+		summarizeBy: none
+		sourceColumn: Cat
+
+		annotation SummarizationSetBy = Automatic
+
+	column S_no
+		dataType: string
+		lineageTag: 78cf2de7-8aef-4c04-a4ba-62b1a7e65189
+		summarizeBy: none
+		sourceColumn: S_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task_Type
+		dataType: string
+		lineageTag: e1e50edf-1cb6-4d8d-82ec-6be54a730a9f
+		summarizeBy: none
+		sourceColumn: Task_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXP_per_unit
+		dataType: int64
+		formatString: 0
+		lineageTag: 110368a8-df90-4193-94a5-2f904e17ac40
+		summarizeBy: sum
+		sourceColumn: EXP_per_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit
+		dataType: string
+		lineageTag: e3c04a7d-cb44-4df5-8746-3f4d1b14c2ca
+		summarizeBy: none
+		sourceColumn: Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Default_Difficulty
+		dataType: int64
+		formatString: 0
+		lineageTag: 1cd4f90c-0a8c-40d2-8472-ba71d3687bc4
+		summarizeBy: sum
+		sourceColumn: Default_Difficulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Impact
+		dataType: double
+		lineageTag: de693879-fbc8-40f0-9cd3-a8e1324a8c21
+		summarizeBy: sum
+		sourceColumn: Impact
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Active
+		dataType: int64
+		formatString: 0
+		lineageTag: de9a759c-b48e-4042-86f5-8ccfaa25547c
+		summarizeBy: sum
+		sourceColumn: Active
+
+		annotation SummarizationSetBy = Automatic
+
+	column Display_order
+		dataType: int64
+		formatString: 0
+		lineageTag: a12e1a9f-b49f-41f6-b147-bdb391ef8562
+		summarizeBy: sum
+		sourceColumn: Display_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ef6eb823-ff53-45b6-8933-03d5b284ba3a
+		summarizeBy: none
+		sourceColumn: Start
+
+		variation 變化
+			isDefault
+			relationship: 3d528be7-c21e-4594-97d2-cfb4c712f4ca
+			defaultHierarchy: LocalDateTable_622de473-350e-447c-bf7d-010a71f7c68f.日期階層
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Task_Master = m
+		mode: import
+		source =
+				let
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, true),
+				    Task_Master_Sheet = 來源{[Item="Task_Master",Kind="Sheet"]}[Data],
+				    已將標頭升階 = Table.PromoteHeaders(Task_Master_Sheet, [PromoteAllScalars=true]),
+				    已變更類型 = Table.TransformColumnTypes(已將標頭升階,{{"T_no", type text}, {"Task_n", type text}, {"RPG_Cat", type text}, {"Cat", type text}, {"S_no", type text}, {"Task_Type", type text}, {"EXP_per_unit", Int64.Type}, {"Unit", type text}, {"Default_Difficulty", Int64.Type}, {"Impact", type number}, {"Active", Int64.Type}, {"Display_order", Int64.Type}, {"Start", type date}})
+				in
+				    已變更類型
+
+	annotation PBI_ResultType = Table
+

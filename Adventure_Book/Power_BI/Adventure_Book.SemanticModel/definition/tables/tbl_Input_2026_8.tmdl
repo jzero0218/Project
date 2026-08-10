@@ -1,0 +1,50 @@
+table tbl_Input_2026_8
+	lineageTag: 7f442209-e022-47cb-8679-d64c93c1d925
+
+	column T_no
+		dataType: string
+		lineageTag: a86b1ccc-1c9f-45ea-96ba-b1f2e3478e70
+		summarizeBy: none
+		sourceColumn: T_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task
+		dataType: string
+		lineageTag: 46139834-6ee9-466b-9f82-a45d269cf283
+		summarizeBy: none
+		sourceColumn: Task
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: string
+		lineageTag: d23aaa48-8377-465f-bec4-98ec6ea67b51
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Completed
+		dataType: string
+		lineageTag: 03a28742-10f3-4f1d-8850-0206b875ba48
+		summarizeBy: none
+		sourceColumn: Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tbl_Input_2026_8 = m
+		mode: import
+		source =
+				let
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, true),
+				    tbl_Input_2026_8_Table = 來源{[Item="tbl_Input_2026_8",Kind="Table"]}[Data],
+				    取消其他資料行樞紐 = Table.UnpivotOtherColumns(tbl_Input_2026_8_Table, {"T_no", "Task"}, "屬性", "值"),
+				    已重新命名資料行 = Table.RenameColumns(取消其他資料行樞紐,{{"屬性", "Date"}, {"值", "Completed"}})
+				in
+				    已重新命名資料行
+
+	annotation PBI_NavigationStepName = 導覽
+
+	annotation PBI_ResultType = Table
+

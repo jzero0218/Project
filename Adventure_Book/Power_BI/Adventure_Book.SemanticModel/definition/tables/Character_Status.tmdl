@@ -1,0 +1,119 @@
+table Character_Status
+	lineageTag: b29d76db-f4bc-4a07-9de8-a8c6e55c1f12
+
+	column Level
+		dataType: int64
+		formatString: 0
+		lineageTag: 905ee666-ff94-4b57-9758-025f1883a2c3
+		summarizeBy: sum
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column Total_EXP
+		dataType: int64
+		formatString: 0
+		lineageTag: ad16facb-74cc-4c8f-bb45-cf2dd8f713ab
+		summarizeBy: sum
+		sourceColumn: Total_EXP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: string
+		lineageTag: 1c2832d1-ee90-4ef9-a963-422bdc87a280
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 創世術-作品及程式語言
+		dataType: int64
+		formatString: 0
+		lineageTag: a7bac414-5620-4afe-968b-e7f7f96eb841
+		summarizeBy: sum
+		sourceColumn: 創世術-作品及程式語言
+
+		annotation SummarizationSetBy = Automatic
+
+	column '分析術-Python & SQL'
+		dataType: int64
+		formatString: 0
+		lineageTag: 166c3b93-efd7-4f51-b4cc-f90ad723ee09
+		summarizeBy: sum
+		sourceColumn: 分析術-Python & SQL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 破譯術-英文
+		dataType: int64
+		formatString: 0
+		lineageTag: a355ab01-9d51-4f1d-af40-8b105ce0600b
+		summarizeBy: sum
+		sourceColumn: 破譯術-英文
+
+		annotation SummarizationSetBy = Automatic
+
+	column 破譯術-日文
+		dataType: int64
+		formatString: 0
+		lineageTag: 018a0f56-5c15-46e9-92eb-28c5d50048a8
+		summarizeBy: sum
+		sourceColumn: 破譯術-日文
+
+		annotation SummarizationSetBy = Automatic
+
+	column 創世術-小說
+		dataType: int64
+		formatString: 0
+		lineageTag: 9969fe7f-0c7e-40f5-91be-ac0052e74d29
+		summarizeBy: sum
+		sourceColumn: 創世術-小說
+
+		annotation SummarizationSetBy = Automatic
+
+	column 養心術-書法
+		dataType: int64
+		formatString: 0
+		lineageTag: 508e6a0e-bb60-419f-940d-a05278af69b6
+		summarizeBy: sum
+		sourceColumn: 養心術-書法
+
+		annotation SummarizationSetBy = Automatic
+
+	column 養心術-遊戲
+		dataType: int64
+		formatString: 0
+		lineageTag: 7691d88b-56ce-4bf8-b2e1-241d61faa2ec
+		summarizeBy: sum
+		sourceColumn: 養心術-遊戲
+
+		annotation SummarizationSetBy = Automatic
+
+	column 體術-運動
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f4d276d-4d93-4f87-be54-b0d96a8e152a
+		summarizeBy: sum
+		sourceColumn: 體術-運動
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Character_Status = m
+		mode: import
+		source =
+				let
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, false),
+				    Character_Status_sheet = 來源{[Item="Character_Status",Kind="Sheet"]}[Data],
+				    FilterNullAndWhitespace = each List.Select(_, each _ <> null and (not (_ is text) or Text.Trim(_) <> "")),
+				    已移除底端資料列 = Table.RemoveLastN(Character_Status_sheet, each try List.IsEmpty(List.Skip(FilterNullAndWhitespace(Record.FieldValues(_)), 1)) otherwise false),
+				    已移除其他資料行 = Table.SelectColumns(已移除底端資料列, List.Select(Table.ColumnNames(已移除底端資料列), each try not List.IsEmpty(FilterNullAndWhitespace(Table.Column(已移除底端資料列, _))) otherwise true)),
+				    已將標頭升階 = Table.PromoteHeaders(已移除其他資料行, [PromoteAllScalars=true]),
+				    已變更類型 = Table.TransformColumnTypes(已將標頭升階,{{"Level", Int64.Type}, {"Total_EXP", Int64.Type}, {"Date", type any}, {"創世術-作品及程式語言", Int64.Type}, {"分析術-Python & SQL", Int64.Type}, {"破譯術-英文", Int64.Type}, {"破譯術-日文", Int64.Type}, {"創世術-小說", Int64.Type}, {"養心術-書法", Int64.Type}, {"養心術-遊戲", Int64.Type}, {"體術-運動", Int64.Type}})
+				in
+				    已變更類型
+
+	annotation PBI_NavigationStepName = 導覽
+
+	annotation PBI_ResultType = Table
+

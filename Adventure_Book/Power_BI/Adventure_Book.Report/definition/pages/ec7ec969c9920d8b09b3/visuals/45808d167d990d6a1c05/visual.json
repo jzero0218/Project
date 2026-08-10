@@ -1,0 +1,107 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "45808d167d990d6a1c05",
+  "position": {
+    "x": 561.057268722467,
+    "y": 387.66519823788548,
+    "z": 3000,
+    "height": 301.67400881057267,
+    "width": 627.31277533039645,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Skill_Master"
+                    }
+                  },
+                  "Property": "Skill_n"
+                }
+              },
+              "queryRef": "Skill_Master.Skill_n",
+              "nativeQueryRef": "Skill_n 的計數",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Log"
+                    }
+                  },
+                  "Property": "Total_EXP_BASE"
+                }
+              },
+              "queryRef": "Daily_Log.Total_EXP",
+              "nativeQueryRef": "Total_EXP_BASE"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Daily_Log"
+                  }
+                },
+                "Property": "Total_EXP_BASE"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9dd41bf663006ddab9b4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Skill_Master"
+              }
+            },
+            "Property": "Skill_n"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "efa5e7810c4d199c5372",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Total_EXP_BASE"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

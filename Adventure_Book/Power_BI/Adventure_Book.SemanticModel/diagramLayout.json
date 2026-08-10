@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 422,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1058.4804275815991,
+            "y": 264
+          },
+          "nodeIndex": "Character_Status",
+          "nodeLineageTag": "b29d76db-f4bc-4a07-9de8-a8c6e55c1f12",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 507.48042758159909,
+            "y": 0
+          },
+          "nodeIndex": "Daily_Log",
+          "nodeLineageTag": "28bfbc68-8cad-4152-87d8-347b8e7fc889",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Skill_Master",
+          "nodeLineageTag": "6c3789de-864d-4e7a-a07b-c206796618ea",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 210.44604118824481,
+            "y": 293.08977583790261
+          },
+          "nodeIndex": "Task_Master",
+          "nodeLineageTag": "7cce963d-285c-4f46-9c19-46b2e23c68df",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 498.55806922846728,
+            "y": 575.18174485697307
+          },
+          "nodeIndex": "tbl_Input_2026_7",
+          "nodeLineageTag": "61cf1d62-3e2c-42a9-9459-85ec5a0c1903",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 689.59475151337142,
+            "y": 356
+          },
+          "nodeIndex": "tbl_Input_2026_8",
+          "nodeLineageTag": "7f442209-e022-47cb-8679-d64c93c1d925",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 868.48042758159909,
+            "y": 21.822493378592753
+          },
+          "nodeIndex": "Date_table",
+          "nodeLineageTag": "7b945406-4842-485d-a123-d7c719a4d2d6",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        }
+      ],
+      "name": "所有資料表",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "所有資料表",
+  "defaultDiagram": "所有資料表"
+}

@@ -1,0 +1,28 @@
+model Model
+	culture: zh-HK
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ja-JP
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Skill_Master","Task_Master","tbl_Input_2026_7","tbl_Input_2026_8","Character_Status","Daily_Log"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Skill_Master
+ref table DateTableTemplate_cbe187b6-6b47-4f4c-917b-8b19a0a33454
+ref table LocalDateTable_94e9186c-d94a-45d7-8354-89860f4af6d8
+ref table Task_Master
+ref table LocalDateTable_622de473-350e-447c-bf7d-010a71f7c68f
+ref table tbl_Input_2026_7
+ref table tbl_Input_2026_8
+ref table Character_Status
+ref table Daily_Log
+ref table Date_table
+ref table LocalDateTable_6b35b4ce-6e3a-4971-8df2-f91e89798e82
+
+ref cultureInfo zh-HK
+

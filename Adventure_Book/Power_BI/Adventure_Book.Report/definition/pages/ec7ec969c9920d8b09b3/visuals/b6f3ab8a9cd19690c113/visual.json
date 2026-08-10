@@ -1,0 +1,107 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "b6f3ab8a9cd19690c113",
+  "position": {
+    "x": 561.057268722467,
+    "y": 32.422907488986787,
+    "z": 2000,
+    "height": 327.04845814977972,
+    "width": 627.31277533039645,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date_table"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Date_table.Date",
+              "nativeQueryRef": "Date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Log"
+                    }
+                  },
+                  "Property": "Total_EXP_ToDate"
+                }
+              },
+              "queryRef": "Daily_Log.Total_EXP_ToDate",
+              "nativeQueryRef": "Total_EXP_ToDate"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Date_table"
+                  }
+                },
+                "Property": "Date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "419417e9c080946d2b10",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date_table"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8a3af154c0a82974170b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Total_EXP_ToDate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

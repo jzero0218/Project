@@ -1,0 +1,131 @@
+table Daily_Log
+	lineageTag: 28bfbc68-8cad-4152-87d8-347b8e7fc889
+
+	measure Total_EXP_BASE = SUM(Daily_Log[Actual_EXP])
+		formatString: 0
+		lineageTag: d2e73e04-6936-444f-8fdc-852d8b17b3c5
+
+	measure Completed_task = CALCULATE(COUNTROWS(Daily_Log), Daily_Log[Completed] = TRUE())
+		formatString: 0
+		lineageTag: 3b1074b8-34e7-495a-bd18-e337bf3695d2
+
+	measure Total_tasks = CALCULATE(COUNTROWS(Daily_Log), KEEPFILTERS(Date_table[Date] <= TODAY()))
+		formatString: 0
+		lineageTag: 6c218adf-6cda-4329-a576-84e51ba57c88
+
+	measure Completed_rate = ```
+			DIVIDE([Completed_task], [Total_tasks], 0) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 345af4b6-f0ad-480f-b239-05388a7f6358
+
+	measure Completed_rate_visual = IF(MAX(Date_table[Date]) > TODAY(), BLANK(), [Completed_rate])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c69b2196-02de-4afc-8d65-c1f6698fd578
+
+	measure Total_EXP_ToDate = CALCULATE([Total_EXP_BASE], KEEPFILTERS(Date_table[Date] <= TODAY()))
+		formatString: 0
+		lineageTag: b31c8424-e629-4281-ac00-b0af733c629c
+
+	column T_no
+		dataType: string
+		lineageTag: c47fb896-2f9a-4d59-8712-e8f7a2044f32
+		summarizeBy: none
+		sourceColumn: T_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task
+		dataType: string
+		lineageTag: b15662a8-e86b-48ab-b2be-8b481c803f6f
+		summarizeBy: none
+		sourceColumn: Task
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2471e5e3-876c-42c3-afc8-975cbc109b36
+		summarizeBy: none
+		sourceColumn: Date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Completed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9f28fff5-e777-429d-94ad-8b32dff2139d
+		summarizeBy: none
+		sourceColumn: Completed
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column S_no
+		dataType: string
+		lineageTag: 673c02ad-ba10-4687-8eed-d8f6f8cf13e2
+		summarizeBy: none
+		sourceColumn: S_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXP_per_unit
+		dataType: int64
+		formatString: 0
+		lineageTag: 03d4d827-a4ff-4f22-bca4-2b98ec04f684
+		summarizeBy: sum
+		sourceColumn: EXP_per_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Default_Difficulty
+		dataType: int64
+		formatString: 0
+		lineageTag: 336b4fff-adae-4e13-a8a5-b6bd16395c8a
+		summarizeBy: sum
+		sourceColumn: Default_Difficulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Impact
+		dataType: double
+		lineageTag: 68c7770e-dea6-4b14-84f1-7328d5568c6e
+		summarizeBy: sum
+		sourceColumn: Impact
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Actual_EXP
+		dataType: int64
+		formatString: 0
+		lineageTag: 36386198-bda1-412c-8959-8fd2a1c89fd4
+		summarizeBy: sum
+		sourceColumn: Actual_EXP
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Daily_Log = m
+		mode: import
+		source =
+				let
+				    來源 = Table.Combine({tbl_Input_2026_7, tbl_Input_2026_8}),
+				    已合併查詢 = Table.NestedJoin(來源, {"T_no"}, Task_Master, {"T_no"}, "Task_Master", JoinKind.LeftOuter),
+				    #"已展開 Task_Master" = Table.ExpandTableColumn(已合併查詢, "Task_Master", {"S_no", "EXP_per_unit", "Default_Difficulty", "Impact"}, {"S_no", "EXP_per_unit", "Default_Difficulty", "Impact"}),
+				    已新增自訂 = Table.AddColumn(#"已展開 Task_Master", "Actual_EXP", each if [Completed] = true then [EXP_per_unit]*[Default_Difficulty]*[Impact] else 0)
+				in
+				    已新增自訂
+
+	annotation PBI_NavigationStepName = 導覽
+
+	annotation PBI_ResultType = Table
+

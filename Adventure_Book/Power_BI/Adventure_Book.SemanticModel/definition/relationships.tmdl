@@ -1,0 +1,40 @@
+relationship a4f260d3-12c4-49e8-abed-7c581b07dfc4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Skill_Master.Start
+	toColumn: LocalDateTable_94e9186c-d94a-45d7-8354-89860f4af6d8.Date
+
+relationship 3d528be7-c21e-4594-97d2-cfb4c712f4ca
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Task_Master.Start
+	toColumn: LocalDateTable_622de473-350e-447c-bf7d-010a71f7c68f.Date
+
+relationship AutoDetected_3b4af064-5fd2-4a5e-ae3c-71747c81a3fc
+	fromColumn: tbl_Input_2026_7.T_no
+	toColumn: Task_Master.T_no
+
+relationship AutoDetected_26305e0d-6902-4f85-a8b9-165aef93eb69
+	fromColumn: tbl_Input_2026_8.T_no
+	toColumn: Task_Master.T_no
+
+relationship AutoDetected_c6d13115-b199-491b-a944-2db39a2cddac
+	fromColumn: Daily_Log.T_no
+	toColumn: Task_Master.T_no
+
+relationship 99e6b6f0-9ce2-4af7-b911-6c0fed0198cf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Date_table.Date
+	toColumn: LocalDateTable_6b35b4ce-6e3a-4971-8df2-f91e89798e82.Date
+
+relationship 804ce3ee-4688-2267-cc03-8dda8b7d38e7
+	fromColumn: Task_Master.S_no
+	toColumn: Skill_Master.S_no
+
+relationship 08f12b99-2a76-efe1-ceb8-aea881d81552
+	isActive: false
+	fromColumn: Daily_Log.S_no
+	toColumn: Skill_Master.S_no
+
+relationship f06a28a2-e051-12f2-6879-07acd136ebb2
+	fromColumn: Daily_Log.Date
+	toColumn: Date_table.Date
+

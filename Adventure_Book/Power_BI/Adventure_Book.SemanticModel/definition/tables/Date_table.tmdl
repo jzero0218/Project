@@ -1,0 +1,54 @@
+table Date_table
+	lineageTag: 7b945406-4842-485d-a123-d7c719a4d2d6
+
+	column Date
+		formatString: Long Date
+		lineageTag: fcb9f980-2669-4ba9-97f7-ab45d8936595
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation 變化
+			isDefault
+			relationship: 99e6b6f0-9ce2-4af7-b911-6c0fed0198cf
+			defaultHierarchy: LocalDateTable_6b35b4ce-6e3a-4971-8df2-f91e89798e82.日期階層
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year = ```
+			YEAR(Date_table[Date]) 
+			```
+		formatString: 0
+		lineageTag: b986056d-e641-4596-95da-2f54e7e1165e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = ```
+			MONTH(Date_table[Date]) 
+			```
+		formatString: 0
+		lineageTag: 7934022a-2509-4264-bfcb-19aabbc3ca43
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth = FORMAT(Date_Table[Date], "YYYY-MM")
+		lineageTag: 259642e7-b010-4d0c-9a70-667025b87b58
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date_table = calculated
+		mode: import
+		source =
+				
+				CALENDAR(
+				    MIN(Daily_Log[Date]),
+				    MAX(Daily_Log[Date])
+				)
+
+	annotation PBI_Id = 43f7881f6f2045d180dbfe065fbaf81d
+
