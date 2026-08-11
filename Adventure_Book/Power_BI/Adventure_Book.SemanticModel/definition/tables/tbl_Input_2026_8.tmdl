@@ -37,7 +37,7 @@ table tbl_Input_2026_8
 		mode: import
 		source =
 				let
-				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, true),
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\Data\冒險之書測試版_V3.05.xlsx"), null, true),
 				    tbl_Input_2026_8_Table = 來源{[Item="tbl_Input_2026_8",Kind="Table"]}[Data],
 				    取消其他資料行樞紐 = Table.UnpivotOtherColumns(tbl_Input_2026_8_Table, {"T_no", "Task"}, "屬性", "值"),
 				    已重新命名資料行 = Table.RenameColumns(取消其他資料行樞紐,{{"屬性", "Date"}, {"值", "Completed"}})

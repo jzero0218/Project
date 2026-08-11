@@ -71,12 +71,14 @@ table Skill_Master
 		mode: import
 		source =
 				let
-				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, true),
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\Data\冒險之書測試版_V3.05.xlsx"), null, true),
 				    Skill_Master_Sheet = 來源{[Item="Skill_Master",Kind="Sheet"]}[Data],
 				    已將標頭升階 = Table.PromoteHeaders(Skill_Master_Sheet, [PromoteAllScalars=true]),
 				    已變更類型 = Table.TransformColumnTypes(已將標頭升階,{{"S_no", type text}, {"Skill_n", type text}, {"RPG_Cat", type text}, {"Cat", type text}, {"Display_order", Int64.Type}, {"Training", Int64.Type}, {"Start", type date}})
 				in
 				    已變更類型
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = 導覽
 

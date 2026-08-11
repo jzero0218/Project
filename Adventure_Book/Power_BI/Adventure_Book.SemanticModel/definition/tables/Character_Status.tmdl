@@ -103,7 +103,7 @@ table Character_Status
 		mode: import
 		source =
 				let
-				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, false),
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\Data\冒險之書測試版_V3.05.xlsx")),
 				    Character_Status_sheet = 來源{[Item="Character_Status",Kind="Sheet"]}[Data],
 				    FilterNullAndWhitespace = each List.Select(_, each _ <> null and (not (_ is text) or Text.Trim(_) <> "")),
 				    已移除底端資料列 = Table.RemoveLastN(Character_Status_sheet, each try List.IsEmpty(List.Skip(FilterNullAndWhitespace(Record.FieldValues(_)), 1)) otherwise false),

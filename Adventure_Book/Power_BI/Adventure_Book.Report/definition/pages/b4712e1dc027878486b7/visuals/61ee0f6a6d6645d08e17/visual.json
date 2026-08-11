@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "45808d167d990d6a1c05",
+  "name": "61ee0f6a6d6645d08e17",
   "position": {
-    "x": 561.057268722467,
-    "y": 387.66519823788548,
-    "z": 3000,
-    "height": 301.67400881057267,
-    "width": 627.31277533039645,
-    "tabOrder": 2000
+    "x": 845.81497797356826,
+    "y": 67.665198237885463,
+    "z": 2,
+    "height": 429.95594713656391,
+    "width": 396.12334801762114,
+    "tabOrder": 2
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Skill_Master"
+                      "Entity": "Date_table"
                     }
                   },
-                  "Property": "Skill_n"
+                  "Property": "YearMonth"
                 }
               },
-              "queryRef": "Skill_Master.Skill_n",
-              "nativeQueryRef": "Skill_n 的計數",
+              "queryRef": "Date_table.YearMonth",
+              "nativeQueryRef": "YearMonth",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "Daily_Log"
                     }
                   },
-                  "Property": "Total_EXP_BASE"
+                  "Property": "Average_EXP"
                 }
               },
-              "queryRef": "Daily_Log.Total_EXP",
-              "nativeQueryRef": "Total_EXP_BASE"
+              "queryRef": "Daily_Log.Average_EXP",
+              "nativeQueryRef": "Average_EXP"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "Daily_Log"
                   }
                 },
-                "Property": "Total_EXP_BASE"
+                "Property": "Average_EXP"
               }
             },
             "direction": "Descending"
@@ -71,5 +71,37 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2ff6c36028b0326c07ba",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date_table"
+              }
+            },
+            "Property": "YearMonth"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ee131845e682db094615",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Average_EXP"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

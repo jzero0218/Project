@@ -27,6 +27,15 @@ table Daily_Log
 		formatString: 0
 		lineageTag: b31c8424-e629-4281-ac00-b0af733c629c
 
+	measure Actual_Days = CALCULATE(DISTINCTCOUNT(Daily_Log[Date]), KEEPFILTERS(Date_table[Date] <= TODAY()))
+		formatString: 0
+		lineageTag: ddf1a230-c073-49fb-aa51-eee9b54aa785
+
+	measure Average_EXP = DIVIDE([Total_EXP_ToDate], [Actual_Days],0)
+		lineageTag: 54e02df3-4da5-436f-aa04-9a8c52052e54
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column T_no
 		dataType: string
 		lineageTag: c47fb896-2f9a-4d59-8712-e8f7a2044f32

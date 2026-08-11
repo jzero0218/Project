@@ -38,7 +38,7 @@ table tbl_Input_2026_7
 		mode: import
 		source =
 				let
-				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\冒險之書測試版_V3.05.xlsx"), null, true),
+				    來源 = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\GitHub\Project\Adventure_Book\Data\冒險之書測試版_V3.05.xlsx"), null, true),
 				    tbl_Input_2026_7_Table = 來源{[Item="tbl_Input_2026_7",Kind="Table"]}[Data],
 				    已變更類型 = Table.TransformColumnTypes(tbl_Input_2026_7_Table,{{"T_no", type text}, {"Task", type text}, {"2026/7/23", type logical}, {"2026/7/24", type logical}, {"2026/7/25", type logical}, {"2026/7/26", type logical}, {"2026/7/27", type logical}, {"2026/7/28", type logical}, {"2026/7/29", type logical}, {"2026/7/30", type logical}, {"2026/7/31", type logical}}),
 				    取消其他資料行樞紐 = Table.UnpivotOtherColumns(已變更類型, {"T_no", "Task"}, "屬性", "值"),
