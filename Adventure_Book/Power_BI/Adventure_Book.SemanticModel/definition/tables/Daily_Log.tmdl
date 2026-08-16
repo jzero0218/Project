@@ -36,6 +36,46 @@ table Daily_Log
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure P_Total_EXP = CALCULATE([Total_EXP_BASE], DATEADD(Date_table[Date],-1,MONTH))
+		formatString: 0
+		lineageTag: 2e5df9ed-03e4-4b70-9187-68bf8c521b48
+
+	measure MoM_EXP_Month = DIVIDE([Total_EXP_ToDate]-[P_MTD_EXP], [P_MTD_EXP])
+		lineageTag: 261f9ed2-d0ae-4d0a-8ae9-9043fe859986
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure P_MTD_EXP =
+			
+			VAR Current_Date = MAX(Date_table[Date])
+			VAR Pre_MonthEnd = EDATE(Current_Date, -1)
+			RETURN
+			CALCULATE([Total_EXP_BASE], DATESBETWEEN(Date_table[Date], DATE(YEAR(Pre_MonthEnd),MONTH(Pre_MonthEnd), 1), Pre_MonthEnd))
+		formatString: 0
+		lineageTag: a721b3da-006a-4c5f-b984-705dd355c484
+
+	measure MoM_Cur_EXP =
+			
+			VAR Cur_day = TODAY()
+			VAR Cur_M_Start = DATE(YEAR(Cur_day),MONTH(Cur_day),1)
+			VAR Pre_day = EDATE(Cur_day, -1)
+			VAR Pre_M_Start = DATE(YEAR(Pre_day),MONTH(Pre_day),1)
+			VAR Cur_MTD = CALCULATE([Total_EXP_BASE], DATESBETWEEN(Date_table[Date], Cur_M_Start, Cur_day))
+			VAR Pre_MTD = CALCULATE([Total_EXP_BASE], DATESBETWEEN(Date_table[Date], Pre_M_Start, Pre_day))
+			RETURN
+			
+			IF(
+			    ISBLANK(Pre_MTD) || Pre_MTD = 0,
+			    BLANK(),
+			    DIVIDE(
+			        Cur_MTD - Pre_MTD,
+			        Pre_MTD
+			    )
+			)
+		lineageTag: 0dbf7d11-21ba-417c-8f26-92de2418212b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column T_no
 		dataType: string
 		lineageTag: c47fb896-2f9a-4d59-8712-e8f7a2044f32

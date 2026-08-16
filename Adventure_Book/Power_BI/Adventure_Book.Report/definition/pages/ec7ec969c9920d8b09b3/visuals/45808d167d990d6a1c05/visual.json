@@ -70,6 +70,53 @@
         "isDefaultSort": true
       }
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Skill Total EXP'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6b2220dc3005b858a338",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Skill_Master"
+              }
+            },
+            "Property": "Skill_n"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fdf222b95b346b50f5eb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Total_EXP_BASE"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

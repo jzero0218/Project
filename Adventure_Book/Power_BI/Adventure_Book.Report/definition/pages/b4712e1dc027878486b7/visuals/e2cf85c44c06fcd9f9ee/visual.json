@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "c2490baaa7ba5c006a27",
+  "name": "e2cf85c44c06fcd9f9ee",
   "position": {
     "x": 449.69162995594718,
-    "y": 67.665198237885463,
-    "z": 1,
-    "height": 428.54625550660796,
+    "y": 60.616740088105729,
+    "z": 3,
+    "height": 300.26431718061673,
     "width": 396.12334801762114,
-    "tabOrder": 1
+    "tabOrder": 3
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -70,13 +70,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {
-      "valueAxis": [
-        {
-          "properties": {}
-        }
-      ]
-    },
     "visualContainerObjects": {
       "title": [
         {
@@ -84,7 +77,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Completed_Rate'"
+                  "Value": "'Completed_rate'"
                 }
               }
             }
@@ -97,21 +90,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "e2ed876031244bc676ae",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Date_table"
-              }
-            },
-            "Property": "YearMonth"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "943eff22d61777d71d70",
+        "name": "58bf84ebeb0d7f30c2e3",
         "field": {
           "Measure": {
             "Expression": {
@@ -123,6 +102,20 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "6d29a55f2847f2af6a85",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date_table"
+              }
+            },
+            "Property": "YearMonth"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

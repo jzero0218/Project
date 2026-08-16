@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Daily_Log.Completed_rate",
-              "nativeQueryRef": "Completed_rate"
+              "nativeQueryRef": "Completed_rate",
+              "format": "0.0%;-0.0%;0.0%"
             }
           ]
         }
@@ -50,6 +51,40 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "label": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Completed Rate'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Daily_Log.Completed_rate"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Calibri'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Daily_Log.Completed_rate"
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   },

@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "61ee0f6a6d6645d08e17",
+  "name": "0dfad9ce1b453c908d78",
   "position": {
-    "x": 845.81497797356826,
-    "y": 60.616740088105729,
-    "z": 2,
+    "x": 451.10132158590312,
+    "y": 359.47136563876654,
+    "z": 5,
     "height": 298.85462555066078,
     "width": 396.12334801762114,
-    "tabOrder": 2
+    "tabOrder": 5
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Date_table"
-                    }
-                  },
-                  "Property": "YearMonth"
-                }
-              },
-              "queryRef": "Date_table.YearMonth",
-              "nativeQueryRef": "YearMonth",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -46,7 +27,8 @@
                 }
               },
               "queryRef": "Daily_Log.Average_EXP",
-              "nativeQueryRef": "Average_EXP"
+              "nativeQueryRef": "Average_EXP",
+              "format": "0.0"
             }
           ]
         }
@@ -70,17 +52,20 @@
         "isDefaultSort": true
       }
     },
-    "visualContainerObjects": {
-      "title": [
+    "objects": {
+      "value": [
         {
           "properties": {
-            "text": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average_EXP'"
+                  "Value": "'Calibri'"
                 }
               }
             }
+          },
+          "selector": {
+            "metadata": "Daily_Log.Average_EXP"
           }
         }
       ]
@@ -90,21 +75,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "ccd7bd93b5ee578e337d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Date_table"
-              }
-            },
-            "Property": "YearMonth"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "9c035d5b82a136b0b02b",
+        "name": "cc48ee492ccabb079c0f",
         "field": {
           "Measure": {
             "Expression": {
