@@ -76,6 +76,14 @@ table Daily_Log
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure Task_Comparison_Rank = RANKX(ALL(Daily_Log[Task]), [Completed_rate],,DESC,Dense)
+		formatString: 0
+		lineageTag: 43c9a8e7-f016-4cb9-900c-f5d8d13c4aff
+
+	measure Bottom_Task_rank = RANKX(ALL(Daily_Log[Task]), [Completed_rate],,ASC,Dense)
+		formatString: 0
+		lineageTag: cf971d09-2381-4348-862b-cdd47794a6cc
+
 	column T_no
 		dataType: string
 		lineageTag: c47fb896-2f9a-4d59-8712-e8f7a2044f32
