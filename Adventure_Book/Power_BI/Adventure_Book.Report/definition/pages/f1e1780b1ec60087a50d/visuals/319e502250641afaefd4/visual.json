@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "319e502250641afaefd4",
   "position": {
-    "x": 776.74008810572684,
-    "y": 77.5330396475771,
+    "x": 620.26431718061679,
+    "y": 32.422907488986787,
     "z": 0,
-    "height": 303.08370044052862,
-    "width": 367.92951541850221
+    "height": 554.00881057268725,
+    "width": 329.86784140969166,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -105,21 +106,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "22e7e2d4b70ed282242c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Completed_rate"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f048c137656735f63665",
+        "name": "c5f2e7e43f16ec8c3500",
         "field": {
           "Column": {
             "Expression": {
@@ -131,6 +118,20 @@
           }
         },
         "type": "Categorical"
+      },
+      {
+        "name": "6f9a19db0ccff210e0c1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Completed_rate"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

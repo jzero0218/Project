@@ -1,0 +1,258 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "1176545f30c073d011f2",
+  "position": {
+    "x": 483.52422907488989,
+    "y": 0,
+    "z": 1,
+    "height": 720.352422907489,
+    "width": 755.59471365638774,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Log"
+                    }
+                  },
+                  "Property": "Task"
+                }
+              },
+              "queryRef": "Daily_Log.Task",
+              "nativeQueryRef": "Task",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Log"
+                    }
+                  },
+                  "Property": "Task"
+                }
+              },
+              "queryRef": "Daily_Log.Task",
+              "nativeQueryRef": "Task"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Log"
+                    }
+                  },
+                  "Property": "Completed_rate"
+                }
+              },
+              "queryRef": "Daily_Log.Completed_rate",
+              "nativeQueryRef": "Completed_rate",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Log"
+                    }
+                  },
+                  "Property": "Task_EXP_Contribution"
+                }
+              },
+              "queryRef": "Daily_Log.Task_EXP_Contribution",
+              "nativeQueryRef": "Task_EXP_Contribution"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'LeftCenter'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "referenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'平均線 1'"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Aggregation": {
+                  "Expression": {
+                    "SelectRef": {
+                      "ExpressionName": "Daily_Log.Task_EXP_Contribution"
+                    }
+                  },
+                  "Function": 1
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Daily_Log.Task_EXP_Contribution",
+            "id": "1"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'平均線 2'"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Aggregation": {
+                  "Expression": {
+                    "SelectRef": {
+                      "ExpressionName": "Daily_Log.Completed_rate"
+                    }
+                  },
+                  "Function": 1
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Daily_Log.Completed_rate",
+            "id": "2"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Task Analysis'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "76ce5353df6a66f7846a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Completed_rate"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "10b4d04a26cda14b815f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Task_EXP_Contribution"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3dae575f4e209c31d688",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Log"
+              }
+            },
+            "Property": "Task"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "ca938849bebbbf080e2d",
   "position": {
-    "x": 119.82378854625551,
-    "y": 87.40088105726872,
-    "z": 2,
-    "height": 542.7312775330397,
-    "width": 288.98678414096918,
-    "tabOrder": 2
+    "x": 0,
+    "y": 69.0748898678414,
+    "z": 1000,
+    "height": 475.06607929515422,
+    "width": 288.98678414096918
   },
   "visual": {
     "visualType": "pivotTable",
@@ -89,51 +88,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e4ba11b2c6b4c7f89939",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Completed_rate"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1524e3cfb5bd39435c47",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Task"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "65e5a753368f15a996df",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Date_table"
-              }
-            },
-            "Property": "YearMonth"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

@@ -7,7 +7,7 @@
     "z": 0,
     "height": 215.68281938325993,
     "width": 417.26872246696036,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -136,23 +136,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "afea709e396d31fd674a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Total_EXP_BASE"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

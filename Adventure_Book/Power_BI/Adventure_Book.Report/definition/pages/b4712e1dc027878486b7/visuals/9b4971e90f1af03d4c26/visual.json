@@ -4,10 +4,10 @@
   "position": {
     "x": 845.81497797356826,
     "y": 360.88105726872249,
-    "z": 4,
+    "z": 3000,
     "height": 298.85462555066078,
     "width": 396.12334801762114,
-    "tabOrder": 4
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,23 +70,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "427cbee496e6d433107c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "MoM_Cur_EXP"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

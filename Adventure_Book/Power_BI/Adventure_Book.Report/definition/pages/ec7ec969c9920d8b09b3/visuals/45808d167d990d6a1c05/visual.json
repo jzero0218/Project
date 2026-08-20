@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 301.67400881057267,
     "width": 627.31277533039645,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -86,37 +86,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6b2220dc3005b858a338",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Skill_Master"
-              }
-            },
-            "Property": "Skill_n"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "fdf222b95b346b50f5eb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Total_EXP_BASE"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

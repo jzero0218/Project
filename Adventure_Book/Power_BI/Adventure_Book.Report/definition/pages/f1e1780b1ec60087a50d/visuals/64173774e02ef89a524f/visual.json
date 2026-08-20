@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "64173774e02ef89a524f",
   "position": {
-    "x": 776.74008810572684,
-    "y": 380.61674008810576,
-    "z": 4,
-    "height": 290.39647577092512,
-    "width": 367.92951541850221,
-    "tabOrder": 4
+    "x": 950.13215859030845,
+    "y": 256.56387665198241,
+    "z": 3000,
+    "height": 345.37444933920705,
+    "width": 329.86784140969166,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -111,34 +111,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "bdd7a06c0ff1905e09de",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Task"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6d88b395118a2811e0b1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Completed_rate"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "a4cc42c57645d3a8df3e",
         "field": {

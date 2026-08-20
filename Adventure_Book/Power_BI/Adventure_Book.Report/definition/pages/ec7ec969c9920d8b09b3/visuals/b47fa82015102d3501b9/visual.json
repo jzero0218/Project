@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 193.12775330396477,
     "width": 417.26872246696036,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -87,23 +87,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7cdb28ed9c94080080d5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Completed_rate"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

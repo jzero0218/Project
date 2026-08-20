@@ -6,7 +6,8 @@
     "y": 60.616740088105729,
     "z": 0,
     "height": 298.85462555066078,
-    "width": 396.12334801762114
+    "width": 396.12334801762114,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -84,37 +85,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "01d74c1a7823395dfa52",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Date_table"
-              }
-            },
-            "Property": "YearMonth"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ac3932440196503c5fba",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Daily_Log"
-              }
-            },
-            "Property": "Total_EXP_ToDate"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

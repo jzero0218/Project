@@ -6,7 +6,8 @@
     "y": 441.23348017621146,
     "z": 1000,
     "height": 215.68281938325993,
-    "width": 417.26872246696036
+    "width": 417.26872246696036,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -100,7 +101,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "2ae1cf31071607456387",
+        "name": "443232aa5cb21f1bd5ae",
         "field": {
           "Column": {
             "Expression": {

@@ -84,6 +84,11 @@ table Daily_Log
 		formatString: 0
 		lineageTag: cf971d09-2381-4348-862b-cdd47794a6cc
 
+	measure Task_EXP_Contribution = DIVIDE([Total_EXP_BASE], CALCULATE([Total_EXP_BASE],REMOVEFILTERS(Daily_Log[Task])))
+		lineageTag: 92ef9e8f-fe32-4396-b297-14d343dfdbca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column T_no
 		dataType: string
 		lineageTag: c47fb896-2f9a-4d59-8712-e8f7a2044f32
